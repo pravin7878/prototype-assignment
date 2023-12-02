@@ -17,17 +17,34 @@ Vehicle.prototype.refuel= function(){
 console.log(`${this.brand} is refueling`)
 }
 
+// constrector function for creating car
 function Car(brand, model, speed,fuelType,numberOfWheels){
-    this.brand = Vehicle.brand.call()
+    Vehicle.call(this,brand, model, speed,fuelType)
     this.numberOfWheels = numberOfWheels;
 }
-let car = new Car('tata',2023,20,'petrol')
-console.log(car);
 
-// car.accelerate()
-// console.log(car);
+Object.setPrototypeOf(Car.prototype,Vehicle.prototype)
+let car1 = new Car('tata',2023,20,'petrol',4)
+console.log(car1);
 
-// car.brake()
-// console.log(car);
+car1.accelerate()
+car1.brake()
 
+console.log(car1)
 // car.refuel()
+
+// constrector function for Airplane
+function Airplane(brand, model, speed,fuelType,numberOfEngines,hasLandingGear){
+Vehicle.call(this,brand, model, speed,fuelType);
+this.numberOfEngines = numberOfEngines;
+this.hasLandingGear  = hasLandingGear
+}
+Object.setPrototypeOf(Airplane.prototype,Vehicle.prototype)
+
+Airplane.prototype.TekeOff = function(){
+    console.log(`${this.brand} is Off`)
+}
+let airplane1 = new Airplane('tata',2023,100,'petrol',2,'yes')
+airplane1.accelerate()
+airplane1.TekeOff()
+console.log(airplane1)
