@@ -17,5 +17,5 @@ console.log(car1)
 let car2 =new Car(2024,'bmw', 'non electric')
 console.log(car2)
 
-car2.speed = 350;
+console.log(car2.speed);
 
